@@ -1,6 +1,10 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
+    <Page.actionBar>
+        <ActionBar title="NativeScript-FacebookRebound" backgroundColor="#336699" color="#fff"/>
+    </Page.actionBar>
     <StackLayout>
-        <Label text="Tap the button" class="title"/>
-        <Image tap="springThis" height="240" loaded="picLoaded" src="~/images/deadpool.jpg" stretch="aspectFit" />
+        <Label text="Tap the picture" class="title"/>
+        <Image tap="springThis" height="240" loaded="picLoaded" src="~/images/deadpool2.jpg" stretch="aspectFit" />
+        <label text="{{ mappedValue }}" textWrap="true" />
     </StackLayout>
 </Page>
