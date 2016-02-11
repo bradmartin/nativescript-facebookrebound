@@ -1,0 +1,6 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
+    <StackLayout>
+        <Label text="Tap the button" class="title"/>
+        <Image tap="springThis" height="240" loaded="picLoaded" src="~/images/deadpool.jpg" stretch="aspectFit" />
+    </StackLayout>
+</Page>

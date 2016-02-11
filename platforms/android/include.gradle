@@ -1,0 +1,12 @@
+//default elements
+android {
+    productFlavors {
+        "nativescriptfacebookrebound" {
+            dimension "nativescriptfacebookrebound"
+        }
+    }
+}
+
+dependencies {
+     compile "com.facebook.rebound:rebound:0.3.8"
+}

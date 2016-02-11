@@ -1,0 +1,30 @@
+﻿.title {
+    font-size: 26;
+    horizontal-align: center;
+    margin: 20;
+}
+
+button {
+    font-size: 18;
+    horizontal-align: center;
+}
+
+.message {
+    font-size: 20;
+    color: #284848;
+    horizontal-align: center;
+}
+
+.sub {
+    font-size:14;
+    horizontal-align:center;
+}
+
+.tiny {
+    font-size:10;
+    horizontal-align:center;
+}
+
+.center {
+    horizontal-align:center;
+}

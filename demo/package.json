@@ -1,0 +1,12 @@
+{
+	"nativescript": {
+		"id": "org.nativescript.facebookrebound",
+		"tns-android": {
+			"version": "1.5.1"
+		}
+	},
+	"dependencies": {
+		"nativescript-facebookrebound": "file:..",
+		"tns-core-modules": "latest"
+	}
+}
