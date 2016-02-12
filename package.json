@@ -1,6 +1,6 @@
 {
   "name": "nativescript-facebookrebound",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "NativeScript plugin to use Facebook's Spring Animations for Android.",
    "main": "rebound.js",
   "nativescript": {
