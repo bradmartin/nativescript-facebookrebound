@@ -27,7 +27,7 @@ function picLoaded (args) {
     // Getting the native android <img src="file:///C:\Users\Brad\Source\Repos\nativescript-facebookrebound\screens\facebookRebound.gif" />view (android.view.ImageView in this example)
     var view = args.object.android;
 
-    // create a Rebound Spring() ( TENSION, DAMPER ) -- @returns a Spring() if successful
+    // create a Rebound Spring() ( TENSION, FRICTION ) -- @returns a Spring() if successful
     rebound.createSpring(500, 10).then(function (result) {
 
         // Now we have a Spring to work with.
@@ -75,3 +75,15 @@ function springThis(args) {
 }
 exports.springThis = springThis;
 ```
+
+### API
+
+* **createSpring**(tension: number, friction: damper) Promise...
+    * returns - Spring()
+
+#### Once you have a Spring returned from *createSpring()*, you set your callbacks for the listener events:
+
+* **onSpringUpdate**(function)
+* **onSpringActivate**(function)
+* **onSpringAtEndState**(function)
+* **onSpringAtRest**(function)
