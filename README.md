@@ -1,8 +1,7 @@
-# nativescript-facebookrebound :seedling: :basketball:
+# nativescript-facebookrebound :basketball:
 NativeScript plugin to provide access to Facebook's Spring Animations for Android.
 
 ### FacebookRebound Usage 
-<span style="color: #de3a3a">** The .gif doesn't show how smooth this really is. **</span>
 ![FacebookRebound](screens/facebookRebound.gif)
 
 ## Installation
