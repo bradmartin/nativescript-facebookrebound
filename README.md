@@ -1,5 +1,7 @@
 # nativescript-facebookrebound :basketball:
 NativeScript plugin to provide access to Facebook's Spring Animations for Android.
+This is just a simple wrapper to remove some of the complexity of Rebound, if you want to provide more "sugar"
+on the native methods in the Rebound library then submit a PR :)
 
 ### FacebookRebound Usage 
 ![FacebookRebound](screens/facebookRebound.gif)
@@ -22,7 +24,7 @@ var rebound = require("nativescript-facebookrebound");
 
 function picLoaded (args) {
 
-    // Getting the native android view (android.view.ImageView in this example)
+    // Getting the native android <img src="file:///C:\Users\Brad\Source\Repos\nativescript-facebookrebound\screens\facebookRebound.gif" />view (android.view.ImageView in this example)
     var view = args.object.android;
 
     // create a Rebound Spring() ( TENSION, DAMPER ) -- @returns a Spring() if successful
