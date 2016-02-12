@@ -4,9 +4,8 @@
     </Page.actionBar>
     <StackLayout> 
         <Label text="Tap the picture or button" textWrap="true" class="message"/>
-        <Image tap="springThis" id="pic" height="240" loaded="picLoaded" src="~/images/deadpool2.jpg" stretch="aspectFit" />
+        <Image tap="springThis" loaded="picLoaded" width="200" id="pic" height="240" src="~/images/brokenGlass.jpg" stretch="aspectFill" />
         <label text="{{ movedUp }}" textWrap="true" />
-
         <button text="Spring Time!!!" tap="springThis" />
     </StackLayout>
 </Page>

@@ -9,12 +9,12 @@ NativeScript plugin to provide access to Facebook's Spring Animations for Androi
 
 ## Usage
 
-Typically, you'll want to attach a spring to the `loaded` event for your view item
+Typically, you'll want to attach a Spring during the `loaded` event for your view item
 ### XML:
 ```XML
  <Image tap="springThis" height="240" loaded="picLoaded" src="~/images/deadpool2.jpg" stretch="aspectFit" />
 ```
-
+ 
 ### JS:
 ```JS
 var rebound = require("nativescript-facebookrebound");
@@ -60,12 +60,10 @@ function picLoaded (args) {
 }
 exports.picLoaded = picLoaded;
 
-// tap function on our image to trigger the spring
-function springThis(args) {
 
+function springThis(args) {
     // quick boolean to check if we are going up or down
     if (mMovedUp) {
-
         // setEndValue():  set the rest value to determine the displacement for the spring
         Spring.setEndValue(0);
     } else {
