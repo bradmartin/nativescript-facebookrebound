@@ -2,9 +2,9 @@
     <Page.actionBar>
         <ActionBar title="NativeScript-FacebookRebound" backgroundColor="#336699" color="#fff"/>
     </Page.actionBar>
-    <StackLayout>
+    <StackLayout> 
         <Label text="Tap the picture" class="title"/>
         <Image tap="springThis" height="240" loaded="picLoaded" src="~/images/deadpool2.jpg" stretch="aspectFit" />
-        <label text="{{ mappedValue }}" textWrap="true" />
+        <label text="{{ movedUp }}" textWrap="true" />
     </StackLayout>
 </Page>

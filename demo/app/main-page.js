@@ -1,61 +1,76 @@
 var app = require("application");
 var platformModule = require("platform");
 var color = require("color");
-var Observable = require("data/observable").Observable;
+var Observable = require("data/observable").Observable; 
+var rebound = require("nativescript-facebookrebound");
 
+
+
+var Spring; // global access to our Spring when we set it in the promise success
+var mMovedUp = false; // bool to keep track if we are springing UP/DOWN 
 var data = new Observable({});
 
 function pageLoaded(args) {
     var page = args.object; 
+    page.bindingContext = data;
     // Change statusbar color on Lollipop
     if (platformModule.device.sdkVersion >= "21") {
-        var window = app.android.startActivity.getWindow(); 
+        var window = app.android.startActivity.getWindow();
         window.setStatusBarColor(new color.Color("#144474").android);
     }
-    page.bindingContext = data;
-} 
+}  
 exports.pageLoaded = pageLoaded;
-
-var viewToAnimate;
-var TENSION = 500;
-var DAMPER = 10;
-var mSpring;
-
 
 function picLoaded(args) {
 
-    viewToAnimate = args.object.android;
+    // Getting the native android view (picture in this case)
+    var view = args.object.android;
 
-    var springSystem = com.facebook.rebound.SpringSystem.create();
-    mSpring = springSystem.createSpring();
+    // create a Rebound Spring() ( TENSION, DAMPER ) -- @returns a Spring() if successful
+    rebound.createSpring(500, 10).then(function (result) {
 
-    var listener = com.facebook.rebound.SimpleSpringListener.extend({
-        onSpringUpdate: function (spring) {
-            var value = spring.getCurrentValue();
-            console.log(value);
-            console.log('value: ' + value);
-            var mappedValue = com.facebook.rebound.SpringUtil.mapValueFromRangeToRange(mSpring.getCurrentValue(), 0, 1, 1, 0.5);
-            viewToAnimate.setScaleX(mappedValue);
-            viewToAnimate.setScaleY(mappedValue);
+        // Now we have a Spring to work with.
+        Spring = result;       
 
-        }
+        // called whenever the spring is updated
+        rebound.onSpringUpdate(function () {
+            var mappedValue = com.facebook.rebound.SpringUtil.mapValueFromRangeToRange(Spring.getCurrentValue(), 0, 1, 1, 0.5);
+            view.setScaleX(mappedValue);
+            view.setScaleY(mappedValue);
+        });
+
+        // called whenever the spring leaves its resting state
+        rebound.onSpringActivate(function () {
+            console.log('setSpringActivate started...');
+        });
+
+        // called whenever the spring notifies of displacement state changes
+        rebound.onSpringAtEndState(function () {
+            console.log('setSpringAtEndState...');
+        });
+
+        // called whenever the spring achieves a resting state
+        rebound.onSpringAtRest(function () {
+            console.log('setSpringAtRest...');
+            // Here you could do something like hide a view or trigger more spring if you wanted...
+        });
+
+    }, function (err) {
+        alert("Error in rebound.createSpring(): " + err);
     });
-
-    mSpring.addListener(new listener);
-
-    var config = new com.facebook.rebound.SpringConfig(TENSION, DAMPER);
-    mSpring.setSpringConfig(config);
 }
 exports.picLoaded = picLoaded;
 
-
-var mMovedUp = false;
-
+// tap function on our image to trigger the spring
 function springThis(args) {
+
+    // quick boolean to check if we are going up or down
     if (mMovedUp) {
-        mSpring.setEndValue(0);
+
+        // setEndValue():  set the rest value to determine the displacement for the spring
+        Spring.setEndValue(0);
     } else {
-        mSpring.setEndValue(1);
+        Spring.setEndValue(1);
     }
     mMovedUp = !mMovedUp;
 }
