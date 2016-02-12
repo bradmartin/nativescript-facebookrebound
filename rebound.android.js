@@ -8,7 +8,7 @@
 var Rebound = require("./rebound-common");
 var mSpring;
 
-// create a spring with a random uuid for its name.
+// Create a spring with a random uuid for its name.
 Rebound.createSpring = function (tension, friction) {
     return new Promise(function (resolve, reject) {
         try {
@@ -25,6 +25,11 @@ Rebound.createSpring = function (tension, friction) {
             reject("Error in rebound.createSpring(): " + ex);
         }
     });
+}
+
+// Destroys this Spring, meaning that it will be deregistered from its BaseSpringSystem
+Rebound.destroySpring = function (spring) {
+    mSpring.destroy();
 }
 
 // called whenever the spring is updated

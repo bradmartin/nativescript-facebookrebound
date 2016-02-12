@@ -3,8 +3,10 @@
         <ActionBar title="NativeScript-FacebookRebound" backgroundColor="#336699" color="#fff"/>
     </Page.actionBar>
     <StackLayout> 
-        <Label text="Tap the picture" class="title"/>
-        <Image tap="springThis" height="240" loaded="picLoaded" src="~/images/deadpool2.jpg" stretch="aspectFit" />
+        <Label text="Tap the picture or button" textWrap="true" class="message"/>
+        <Image tap="springThis" id="pic" height="240" loaded="picLoaded" src="~/images/deadpool2.jpg" stretch="aspectFit" />
         <label text="{{ movedUp }}" textWrap="true" />
+
+        <button text="Spring Time!!!" tap="springThis" />
     </StackLayout>
 </Page>

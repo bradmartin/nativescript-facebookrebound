@@ -4,11 +4,11 @@ var color = require("color");
 var Observable = require("data/observable").Observable; 
 var rebound = require("nativescript-facebookrebound");
 
+var data = new Observable({});
 
 
 var Spring; // global access to our Spring when we set it in the promise success
 var mMovedUp = false; // bool to keep track if we are springing UP/DOWN 
-var data = new Observable({});
 
 function pageLoaded(args) {
     var page = args.object; 
