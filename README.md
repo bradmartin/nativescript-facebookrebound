@@ -1,3 +1,6 @@
+[![npm](https://img.shields.io/npm/v/nativescript-facebookrebound.svg)](https://www.npmjs.com/package/nativescript-facebookrebound)
+[![npm](https://img.shields.io/npm/dt/nativescript-facebookrebound.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-facebookrebound)
+
 # nativescript-facebookrebound :basketball:
 NativeScript plugin to provide access to Facebook's Spring Animations for Android.
 This is just a simple wrapper to remove some of the complexity of Rebound, if you want to provide more "sugar"
